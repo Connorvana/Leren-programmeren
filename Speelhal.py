@@ -1,13 +1,13 @@
-print(7.45*4) #=29.8
+personen= 4
+minuten= 45 
+totaalbedrag= ((7.45*personen) +  (0.074*minuten)   )
+algemeen= (totaalbedrag *  personen )
 
-print(45/5) #=9.0
+print (' het bedrag is '+ str(algemeen) + ' euro ' )
 
-print(9.*0.37) #=3.33
 
-print(29.8+3.33) #=33.13
 
-print(33.13*4) #= 132.52 euro
 
-print('Dit geweldige dagje-uit met 4 mensen in de Speelhal met 45 minuten VR kost je maar 132.52 euro')
+
 
 
