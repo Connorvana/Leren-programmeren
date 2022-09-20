@@ -20,8 +20,9 @@ if keuze == 'large' :
 print(' __________________________________')
 print('|                                   |')
 print('|', aantal , 'X', keuze ,'pizza     |' )
-print('| U komt op een totaal van''€', prijs,'|' )
+print('| U komt op een totaal van ''€', prijs,'|' )
 print('------------------------------------')
+
 
 
 
