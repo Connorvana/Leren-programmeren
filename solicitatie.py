@@ -2,7 +2,7 @@ punten = 0
 repeat= True
 
 vraag_naam = input("Hallo! Welkom bij dit sollicitatiegesprek, wat is uw naam?\n")
-
+    
 gefaald = ("\nHelaas " + vraag_naam + ", wij hebben geconstanteerd dat u niet aan de benodigde eisen van deze baan voldoet. :(")
 
 vraag1 = input("\nHoeveel jaar ervaring heeft u met dieren?\n")
