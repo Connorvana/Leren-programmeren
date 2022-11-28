@@ -2,7 +2,9 @@ punten = 0
 repeat= True
 
 vraag_naam = input("Hallo! Welkom bij dit sollicitatiegesprek, wat is uw naam?\n")
-    
+if vraag_naam == 'connor':
+     raise NameError('boep beep beep, je bent niet welkom ')
+
 gefaald = ("\nHelaas " + vraag_naam + ", wij hebben geconstanteerd dat u niet aan de benodigde eisen van deze baan voldoet. :(")
 
 vraag1 = input("\nHoeveel jaar ervaring heeft u met dieren?\n")
@@ -56,10 +58,14 @@ else:
 vraag9 = input("\nHoelang bent u?\n 1. 120cm \n 2. 135cm \n 3. 150cm of langer\n\n")
 if float(vraag9) == 3:
     punten = punten + 1
+if vraag9== '1':
+     raise NameError('ben je net geboren??????')
 
 vraag10 = input("\nHoe zwaar bent u?\n 1. 80kg \n 2. 85kg \n 3. 90kg of meer\n\n")
 if float(vraag10) == 3:
     punten = punten + 1
+if vraag10== '2':
+    raise NameError('niet liegen')
 
 vraag11 = input("\nBent u in bezit van het 'Overleven met gevaarlijk personeel' certificaat? (y/n)\n\n")
 if (vraag11) == "y":
