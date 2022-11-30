@@ -77,6 +77,8 @@ while repeat == True:
                     print('bedankt voor het spelen misschien tot de volgende keer! \n')
                     quit()
 
+                    
+
     
         
     
