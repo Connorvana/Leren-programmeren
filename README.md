@@ -1,4 +1,0 @@
-# pokebowl
-
-
-Opdrachten proef A
