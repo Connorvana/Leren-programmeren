@@ -1,13 +1,17 @@
 from fruitmand import fruitmand
 
-fruitmand.remove(
-    {
-    'name' : 'druif',
-    'weight' : 5,
-    'color' : 'red',
-    'round' : True  })
-
-
+kleurenlist = []
 for fruit in fruitmand:
-    print(fruit['color'])
+    if fruit ['name'] == 'druif':
+        fruitmand.remove(fruit)
+    
+    for i in range(len(fruitmand)):
+        if fruitmand[i]['color'] not in kleurenlist:
+            kleurenlist.append(fruitmand[i]['color'])
+        
+
+
+#for x in kleurenlist:            
+print(*kleurenlist, sep = ' ')
+
     

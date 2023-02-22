@@ -7,11 +7,9 @@ fruitmand.append(
     'color' : 'groen',
     'round' : True
 }
-
-
-
 )
 
 for fruit in fruitmand:
+    
     print(fruit['weight'])
 

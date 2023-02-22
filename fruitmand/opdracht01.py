@@ -1,2 +1,4 @@
-from fruitmand import fruitmand
+from fruitmand import fruitmand 
+
 print(fruitmand)
+

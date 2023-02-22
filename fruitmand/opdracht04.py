@@ -7,3 +7,5 @@ random = random.choice(fruitmand)
 
 for x in range(getal):
     print(random['name'])
+
+
