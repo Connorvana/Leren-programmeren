@@ -11,5 +11,8 @@ fruitmand.append(
 
 for fruit in fruitmand:
     
-    print(fruit['weight'])
+    print(fruit['name'])
+
+    
+
 

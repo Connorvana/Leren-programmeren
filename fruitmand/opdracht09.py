@@ -11,7 +11,7 @@ for fruit in fruitmand:
         
 
 
-#for x in kleurenlist:            
-print(*kleurenlist, sep = ' ')
+            
+print(kleurenlist)
 
     

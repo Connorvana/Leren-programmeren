@@ -14,6 +14,7 @@ naam = []
 
 for x in range(len(fruitmand)):
     naam.append(fruitmand[x]['name'])
+    
 naam.sort(key=len)
 naam.reverse()
 

@@ -1,6 +1,6 @@
 from fruitmand import fruitmand
 
-lijst = {}
+lijst = []
 
 for fruit in range(len(fruitmand)):
     lijst.update({fruitmand[fruit].get('weight')/1000: fruitmand[fruit].get('name')})
