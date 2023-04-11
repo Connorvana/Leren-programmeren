@@ -1,7 +1,5 @@
-def hello(aantal:int):
-  
+def Hello(aantal:int):
   for i in range(aantal):
-    print('Hello from function town', str (i + 1),'!')
-
-
-hello(7)
+    print('Hello from functiontown', str(i + 1),'!')
+  
+Hello(7)

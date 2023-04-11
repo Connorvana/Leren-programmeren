@@ -1,8 +1,8 @@
-def multi(num):
+def multi(num1):
     for i in range(1,11):
-        print(f'{num} x {i} = {num*i}')
+      print(f'{num1} x {i} = {num1*i}')
 
 
-num = int(input('Van welk getal wil je de tafel zien?:\n'))
+getal = int(input('Van welk nummer wil je de tafel zien?: '))
 
-multi(num)
+multi(getal)

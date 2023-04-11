@@ -28,4 +28,4 @@ for y in range(len(fruitmand)):
 
 
 
-print('De', langste_naam, '(' ,aantal_letters, 'letters ) heeft een' ,kleuren[kleur], 'kleur en een gewicht van' ,gewicht/1000,'kg')
+print('De', langste_naam, '(' ,aantal_letters, 'letters ) heeft een' , kleur, 'kleur en een gewicht van' ,gewicht/1000,'kg')
