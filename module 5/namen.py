@@ -1,18 +1,19 @@
-def vraag():
-    naam = input('Wat is je naam?: \n')
-    Leeftijd = input('Wat is je leeftijd?: \n')
-    return{ 'naam': naam, 'leeftijd': Leeftijd}
- 
+def namen():
+    naam = input('Wat is je naam? \n')
+    leeftijd = input('Wat is je leeftijd? \n')
+    return {'name' : naam , 'age' : leeftijd}
+
 lijst = []
 repeat = True
 
-while repeat == True: 
-    persoon = vraag()
+while repeat == True:
+    persoon = namen()
     lijst.append(persoon)
-    stoppen= input( 'wil je nog doorgaan?: ja/nee \n').lower()
+    doorgaan = input('Wil je nog doorgaan? (ja/nee) \n').lower()
     
-    if stoppen == 'nee':
-        break
+    if doorgaan == 'nee':
+        repeat = False
+    
+for persoon in lijst:
+    print(persoon['name'], 'is' , persoon['age'],'Jaar.')
 
-for persoon in lijst : 
-    print(persoon['naam'], 'is', persoon['leeftijd'], 'Jaar oud' )
