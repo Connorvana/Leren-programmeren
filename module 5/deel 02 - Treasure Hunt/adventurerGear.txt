@@ -71,12 +71,3 @@ adventurerGear = [{
         'type' : 'silver'
     }
 }]
-
-def getItemsAsText(items:list) -> str:
-    converted = ""
-    for key in range (len(items)):
-        amount = str(items[key]['amount'])
-        converted += amount + items[key]['unit'] + " " + items[key]['name']
-        if key < len(items) -1:
-            converted += ', '
-    return(converted)

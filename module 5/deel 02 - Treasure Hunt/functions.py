@@ -1,14 +1,17 @@
+import math
 import time
 from termcolor import colored
 from data import JOURNEY_IN_DAYS
-from data import COST_FOOD_HUMAN_COPPER_PER_DAY
 from data import COST_FOOD_HORSE_COPPER_PER_DAY
+from data import COST_FOOD_HUMAN_COPPER_PER_DAY
+from data import COST_HORSE_SILVER_PER_DAY
+from data import COST_TENT_GOLD_PER_WEEK
+
 
 ##################### M04.D02.O2 #####################
 
 def copper2silver(amount:int) -> float:
     return amount / 10
-    
 
 def silver2gold(amount:int) -> float:
     return amount / 5
@@ -20,84 +23,112 @@ def platinum2gold(amount:int) -> float:
     return amount * 25
 
 def getPersonCashInGold(personCash:dict) -> float:
-    gold = silver2gold(personCash.get('silver')) + copper2gold(personCash.get('copper')) + platinum2gold(personCash.get('platinum'))
+    gold = silver2gold(personCash.get('silver')) + copper2gold(personCash.get('copper')) + platinum2gold(personCash.get('platinum')) 
     gold += personCash.get('gold')
     return gold
 
 ##################### M04.D02.O4 #####################
 
 def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
-   
-
-    people = copper2gold(COST_FOOD_HUMAN_COPPER_PER_DAY * people) * JOURNEY_IN_DAYS
-    horses = copper2gold(COST_FOOD_HORSE_COPPER_PER_DAY * horses) * JOURNEY_IN_DAYS
-    return round(people + horses,2)
-
-    
+    human = copper2gold(COST_FOOD_HUMAN_COPPER_PER_DAY * people) * JOURNEY_IN_DAYS
+    horse = copper2gold(COST_FOOD_HORSE_COPPER_PER_DAY * horses) * JOURNEY_IN_DAYS
+    return  round(human + horse,2)
 
 ##################### M04.D02.O5 #####################
 
-#looped door de lijst genaamd friends en voegt de keys en value's toe daarna voegt hij ze toe aan een lege lijst.
 def getFromListByKeyIs(list:list, key:str, value:any) -> list:
-    lijst = [] 
-    
-    for item in range (len(list)):
-        if list [item][key] == value:
-            lijst.append(list[item])
-    return lijst
+    newlist = []
+    for x in range (len(list)):
+        if list[x][key] == value: 
+                newlist.append(list[x])
+    return newlist
 
-
-#als de keys in de lijst people(friends) van adventuring op true staan, dan worden die geselecteerd
 def getAdventuringPeople(people:list) -> list:
-   return getFromListByKeyIs(people, 'adventuring', True) 
+    return getFromListByKeyIs(people,'adventuring',True)
 
-
-#als de keys in de lijst friends van shareWith op true staan, dan worden die geselecteerd
 def getShareWithFriends(friends:list) -> int:
-   return getFromListByKeyIs(friends, 'shareWith', True)
+    return getFromListByKeyIs(friends,'shareWith',True)
 
-#er wordt door de lijst friends gelooped en als adventuring en shareWith op true staan worden die aan de lijst toegevoegd.
 def getAdventuringFriends(friends:list) -> list:
-   lijst = []
-
-   for vrienden in range(len(friends)):
-       if friends[vrienden]['adventuring'] and friends[vrienden]['shareWith'] == True:
-           lijst.append(vrienden)
-           return lijst
-       
-    
+    newlist = []
+    for teller in range (len(friends)):
+        if friends[teller]['adventuring'] and friends[teller]['shareWith']: 
+            newlist.append(friends[teller])
+    return newlist 
 
 ##################### M04.D02.O6 #####################
 
 def getNumberOfHorsesNeeded(people:int) -> int:
-    pass
+    NumberOfHorses = math.ceil(people / 2)
+    return NumberOfHorses
 
 def getNumberOfTentsNeeded(people:int) -> int:
-    pass
+    NumberOfTents = math.ceil(people / 3)
+    return NumberOfTents
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
-    pass
+    return (horses * silver2gold(COST_HORSE_SILVER_PER_DAY) * JOURNEY_IN_DAYS) + (tents * (COST_TENT_GOLD_PER_WEEK * math.ceil(JOURNEY_IN_DAYS / 7)) )
 
 ##################### M04.D02.O7 #####################
 
 def getItemsAsText(items:list) -> str:
-    pass
+    converted = ""
+    for key in range (len(items)):
+        amount = str(items[key]['amount'])
+        converted += amount + items[key]['unit'] + " " + items[key]['name']
+        if key < len(items) -1:
+            converted += ', '
+    return(converted)
 
 def getItemsValueInGold(items:list) -> float:
-    pass
+    value = 0
+    for key in range (len(items)):
+        if items[key]['price']['type'] =='gold':
+            amount = items[key]['price']['amount'] * items[key]['amount']
+            value += amount
+        elif items[key]['price']['type'] =='copper':
+            amount = copper2gold( items[key]['price']['amount']) * items[key]['amount']
+            value += amount
+        elif items[key]['price']['type'] =='silver':
+            amount = silver2gold (items[key]['price']['amount']) * items[key]['amount']
+            value += amount
+        elif items[key]['price']['type'] =='platinum':
+            amount =  platinum2gold(items[key]['price']['amount']) * items[key]['amount']
+            value += amount
+        totaal = round(value,2)
+    return totaal
 
 ##################### M04.D02.O8 #####################
 
 def getCashInGoldFromPeople(people:list) -> float:
-    pass
+    value = 0
+    for key in range (len(people)):
+        amount = people[key]['cash']['gold']
+        value += amount
+        amount = copper2gold( people[key]['cash']['copper']) 
+        value += amount
+        amount = silver2gold (people[key]['cash']['silver']) 
+        value += amount
+        amount =  platinum2gold(people[key]['cash']['platinum'])
+        value += amount
+    totaal = round(value,2)
+    return totaal
 
 ##################### M04.D02.O9 #####################
 
 def getInterestingInvestors(investors:list) -> list:
-    pass
+    InterestingInvestors = []
+    for index in range(len(investors)):    
+        if investors[index]['profitReturn'] <= 10:
+            InterestingInvestors.append(investors[index])
+    return InterestingInvestors
 
 def getAdventuringInvestors(investors:list) -> list:
-    pass
+    adventuringInvestors = []
+    for index in range (len(getInterestingInvestors(investors))):
+        if getInterestingInvestors(investors)[index]['adventuring'] == True:
+            adventuringInvestors.append(getInterestingInvestors(investors)[index])
+    return adventuringInvestors
 
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
     pass
